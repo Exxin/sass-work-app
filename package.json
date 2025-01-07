@@ -1,11 +1,11 @@
 {
-  "name": "vite-sass-app-template",
+  "name": "sass-work-app",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/vite-sass-app-template/",
+    "build": "vite build --base=/sass-work-app/",
     "preview": "vite preview",
     "watch": "npx vite build --watch"
   },
@@ -13,7 +13,8 @@
     "cover 99.5%"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "autoprefixer": "^10.4.20",
     "fast-glob": "^3.3.1",
     "imagemin": "^8.0.1",
     "imagemin-webp": "^8.0.0",
