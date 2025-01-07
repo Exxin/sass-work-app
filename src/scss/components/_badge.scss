@@ -1,7 +1,7 @@
 // @use "../utils/mixin" as mix;
 // @use "../utils/veriables" as ver;
-
 @use "../utils" as id;
+
 
 .badge {
     @include id.badge-base();
@@ -10,12 +10,21 @@
 
 .badge-complete {
     background-color: id.$complete ;
+    &:hover {
+    box-shadow: id.$shadow-badge id.$complete;
+    }
 }
 
 .badge-ended{
     background-color: id.$ended;
+    &:hover {
+        box-shadow: id.$shadow-badge id.$ended;
+    }
 }
 
 .badge-active {
     background-color: id.$active;
+    &:hover {
+        box-shadow: id.$shadow-badge id.$active;
+    }
 }

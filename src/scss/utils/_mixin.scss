@@ -9,4 +9,11 @@
     letter-spacing: 0.07px;
     text-align: center;
     border-radius: 50px;
+    transition: all 250ms;
+
+    &:hover {
+        border-radius: 0px;
+        transform: scale(1.15);
+        border: 1px solid #fff
+    }
 }
