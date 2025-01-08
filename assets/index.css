@@ -177,6 +177,13 @@ meter {
   gap: 25px;
 }
 
+/* Функції */
+/* ===== Usage ===== */
+/* Функція для змішування кольорів
+Реалізація схожа на mix(), але з кастомним підходом.*/
+/* Функція для обчислення контрастного кольору */
+/* ===== Usage ===== */
+/* ===== Usage ===== */
 .badge {
   display: inline-block;
   min-width: 96px;
@@ -190,7 +197,6 @@ meter {
   -webkit-transition: all 250ms;
   -moz-transition: all 250ms;
   transition: all 250ms;
-  color: #fafafb;
 }
 .badge:hover {
   border-radius: 0px;
