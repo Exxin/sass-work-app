@@ -208,15 +208,17 @@ meter {
 }
 
 .badge-complete {
-  background-color: #9628d6;
+  background-color: #b35be6;
+  color: #464646;
 }
 .badge-complete:hover {
-  -webkit-box-shadow: 0px 4px 39px 8px #9628d6;
-          box-shadow: 0px 4px 39px 8px #9628d6;
+  -webkit-box-shadow: 0px 4px 39px 8px #b35be6;
+          box-shadow: 0px 4px 39px 8px #b35be6;
 }
 
 .badge-ended {
   background-color: #d64228;
+  color: #464646;
 }
 .badge-ended:hover {
   -webkit-box-shadow: 0px 4px 39px 8px #d64228;
@@ -225,6 +227,7 @@ meter {
 
 .badge-active {
   background-color: #59d628;
+  color: #464646;
 }
 .badge-active:hover {
   -webkit-box-shadow: 0px 4px 39px 8px #59d628;
