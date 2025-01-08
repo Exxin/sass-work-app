@@ -39,10 +39,25 @@
 // }
 
 /* Функція для обчислення контрастного кольору */
-@function contrast-color($color) {
-  $luminance: (0.2126 * red($color) + 0.7152 * green($color) + 0.0722 * blue($color)) / 255;
-  @return if($luminance > 0.5, black, white);
+@function contrast-color($background-color) {
+  @if type-of($background-color) != 'color' {
+    @error "#{$background-color} is not a valid color.";
+  }
+
+  $r: red($background-color) / 255;
+  $g: green($background-color) / 255;
+  $b: blue($background-color) / 255;
+
+  $r: if($r <= 0.03928, $r / 12.92, pow((($r + 0.055) / 1.055), 2.4));
+  $g: if($g <= 0.03928, $g / 12.92, pow((($g + 0.055) / 1.055), 2.4));
+  $b: if($b <= 0.03928, $b / 12.92, pow((($b + 0.055) / 1.055), 2.4));
+
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+  @return if($luminance > 0.179, #464646, #e4e4e4);
 }
+
+
 
 // .button {
 //   background-color: #3498db;

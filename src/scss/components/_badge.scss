@@ -4,19 +4,19 @@
 
 .badge {
     @include id.badge-base();
-    // color: id.$badge-cl ;
-    // color: contrast-color(id.$active);
 }
 
 .badge-complete {
-    background-color: id.$complete ;
+    background-color: id.$complete;
+    color: fun.contrast-color(id.$complete); // Автоматично підбирає текстовий колір
     &:hover {
-    box-shadow: id.$shadow-badge id.$complete;
+        box-shadow: id.$shadow-badge id.$complete;
     }
 }
 
-.badge-ended{
+.badge-ended {
     background-color: id.$ended;
+    color: fun.contrast-color(id.$ended); // Автоматично підбирає текстовий колір
     &:hover {
         box-shadow: id.$shadow-badge id.$ended;
     }
@@ -24,6 +24,7 @@
 
 .badge-active {
     background-color: id.$active;
+    color: fun.contrast-color(id.$active); // Автоматично підбирає текстовий колір
     &:hover {
         box-shadow: id.$shadow-badge id.$active;
     }
