@@ -17,3 +17,33 @@
         border: 1px solid #fff
     }
 }
+
+@mixin shadow() {
+    box-shadow: 0px 4px 39px 8px;
+}
+
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* ===== Usage ===== */
+
+//   .decoration {
+//     @include position-center;
+//   }
+
+@mixin position($position-type, $position-x, $position-y, $offset-x, $offset-y) {
+    position: $position-type;
+    top: $position-x;
+    left: $position-y;
+    transform: translate($offset-x, $offset-y);
+  }
+  
+  /* ===== Usage ===== */
+
+//   .decoration {
+//     @include position(absolute, 50%, 50%, -50%, -50%);
+//   }

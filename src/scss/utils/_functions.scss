@@ -1,0 +1,50 @@
+/* Функції */
+
+@use "sass:math";
+@function strip-unit($value) {
+  @if type-of($value) == "number" and not unitless($value) {
+    @return math.div($value, ($value * 0 + 1));
+  }
+
+  @return $value;
+}
+// Set px to rem/em
+@function rem($px-value, $base-font-size: 16px) {
+  @return #{strip-unit($px-value) / strip-unit($base-font-size)}rem;
+}
+
+@function em($px-value, $base-font-size: 16px) {
+  @return #{strip-unit($px-value) / strip-unit($base-font-size)}em;
+}
+
+/* ===== Usage ===== */
+// .container {
+//   width: rem(1000px); // or rem(1000)
+// }
+// width: 62.5rem;
+
+
+/* Функція для змішування кольорів
+Реалізація схожа на mix(), але з кастомним підходом.*/
+@function custom-mix($color1, $color2, $weight: 50%) {
+  $p: $weight / 100;
+  $r: red($color1) * $p + red($color2) * (1 - $p);
+  $g: green($color1) * $p + green($color2) * (1 - $p);
+  $b: blue($color1) * $p + blue($color2) * (1 - $p);
+  @return rgb($r, $g, $b);
+}
+
+// .background {
+//   background-color: custom-mix(#3498db, #e74c3c, 30%); // Суміш 30% #3498db і 70% #e74c3c
+// }
+
+/* Функція для обчислення контрастного кольору */
+@function contrast-color($color) {
+  $luminance: (0.2126 * red($color) + 0.7152 * green($color) + 0.0722 * blue($color)) / 255;
+  @return if($luminance > 0.5, black, white);
+}
+
+// .button {
+//   background-color: #3498db;
+//   color: contrast-color(#3498db); // Видасть white
+// }

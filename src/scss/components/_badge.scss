@@ -1,11 +1,11 @@
 // @use "../utils/mixin" as mix;
-// @use "../utils/veriables" as ver;
+@use "../utils/functions" as fun;
 @use "../utils" as id;
-
 
 .badge {
     @include id.badge-base();
-    color: id.$badge-cl ;
+    // color: id.$badge-cl ;
+    // color: contrast-color(id.$active);
 }
 
 .badge-complete {
