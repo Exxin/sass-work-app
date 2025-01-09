@@ -12,8 +12,8 @@
     transition: all 250ms;
 
     &:hover {
-        border-radius: 0px;
-        transform: scale(1.15);
+        border-radius: 4px;
+        transform: scale(1.1);
         border: 1px solid #fff
     }
 }
@@ -47,3 +47,69 @@
 //   .decoration {
 //     @include position(absolute, 50%, 50%, -50%, -50%);
 //   }
+
+
+@mixin triangle($size, $direction, $color) {
+  // Встановлюємо нульову ширину та висоту для елемента
+  width: 0;
+  height: 0;
+
+  // Створюємо трикутник відповідно до напряму
+  @if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size  solid transparent;
+    border-bottom: $size * 1.5 solid $color;
+  } @else if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size * 1.5 solid $color;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size * 1.5 solid $color;
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size * 1.5 solid $color;
+  } @else {
+    @error "Invalid direction. Use 'up', 'down', 'left', or 'right'.";
+  }
+}
+
+
+// Міксин для випадаючого списку
+@mixin dropdown($bg-color, $hover-color, $width, $border-radius, $box-shadow) {
+  position: relative;
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: $bg-color;
+    min-width: $width;
+    box-shadow: $box-shadow;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: $border-radius;
+    z-index: 1000;
+
+    li {
+      padding: 10px 15px;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        // &:hover {
+        //   background-color: $hover-color;
+        // }
+      }
+    }
+  }
+
+  &:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+

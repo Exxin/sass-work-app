@@ -39,22 +39,23 @@
 // }
 
 /* Функція для обчислення контрастного кольору */
+
 @function contrast-color($background-color) {
   @if type-of($background-color) != 'color' {
     @error "#{$background-color} is not a valid color.";
   }
 
-  $r: red($background-color) / 255;
-  $g: green($background-color) / 255;
-  $b: blue($background-color) / 255;
+  $r: math.div(red($background-color), 255);
+  $g: math.div(green($background-color), 255);
+  $b: math.div(blue($background-color), 255);
 
-  $r: if($r <= 0.03928, $r / 12.92, pow((($r + 0.055) / 1.055), 2.4));
-  $g: if($g <= 0.03928, $g / 12.92, pow((($g + 0.055) / 1.055), 2.4));
-  $b: if($b <= 0.03928, $b / 12.92, pow((($b + 0.055) / 1.055), 2.4));
+  $r: if($r <= 0.03928, math.div($r, 12.92), pow((($r + 0.055) / 1.055), 2.4));
+  $g: if($g <= 0.03928, math.div($g, 12.92), pow((($g + 0.055) / 1.055), 2.4));
+  $b: if($b <= 0.03928, math.div($b, 12.92), pow((($b + 0.055) / 1.055), 2.4));
 
   $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
 
-  @return if($luminance > 0.179, #464646, #e4e4e4);
+  @return if($luminance > 0.179, #000000, #ffffff);
 }
 
 
@@ -63,3 +64,7 @@
 //   background-color: #3498db;
 //   color: contrast-color(#3498db); // Видасть white
 // }
+
+
+
+/* Функція трикутника */

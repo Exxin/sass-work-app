@@ -1,0 +1,7 @@
+@use "../utils/mixin" as mix;
+@use "../utils" as id;
+
+.triangle {
+    @include mix.triangle(100px, up, id.$complete);
+    // border: 100px solid id.$complete;
+}

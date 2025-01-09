@@ -1,5 +1,19 @@
+$colors: (
+  "badge-cl": #8e3329,
+  "complete": #d98328,
+  "ended": #6b1d2d,
+  "active": #3d4636,
+);
+
 $badge-cl: #fafafb;
 $complete: #b35be6;
 $ended: #d64228;
-$active: #59d628;
-$shadow-badge: 0px 4px 39px 8px;
+$active: #3e8522;
+
+$shadow-badge: 1px 2px 7px 3px;
+
+$dropdown-bg: #8a8a8a;
+$dropdown-hover-bg: #f1f1f1;
+$dropdown-border-radius: 4px;
+$dropdown-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+$dropdown-width: 150px;

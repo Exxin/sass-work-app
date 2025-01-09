@@ -1,0 +1,26 @@
+@use "../utils" as id;
+@use "../utils/mixin" as mix;
+
+// Стилізація
+.dropdown {
+  @include mix.dropdown(
+    id.$dropdown-bg,
+    id.$dropdown-hover-bg,
+    id.$dropdown-width,
+    id.$dropdown-border-radius,
+    id.$dropdown-box-shadow
+  );
+
+  .dropdown-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: id.$dropdown-border-radius;
+    &:hover {
+      transition: all 250ms;
+      background-color: darken(#007bff, 10%);
+    }
+  }
+}

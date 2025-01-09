@@ -1,31 +1,44 @@
 // @use "../utils/mixin" as mix;
 @use "../utils/functions" as fun;
 @use "../utils" as id;
+@use "sass:map";
 
 .badge {
     @include id.badge-base();
 }
 
 .badge-complete {
-    background-color: id.$complete;
+    // background-color: id.$complete;
+
+    background-color: map.get(id.$colors, "complete");
     color: fun.contrast-color(id.$complete); // Автоматично підбирає текстовий колір
     &:hover {
-        box-shadow: id.$shadow-badge id.$complete;
+        // box-shadow: id.$shadow-badge id.$complete;
+
+        box-shadow: id.$shadow-badge map.get(id.$colors, "complete");
     }
 }
 
 .badge-ended {
-    background-color: id.$ended;
+    // background-color: id.$ended;
+
+    background-color: map.get(id.$colors, "ended");
     color: fun.contrast-color(id.$ended); // Автоматично підбирає текстовий колір
     &:hover {
-        box-shadow: id.$shadow-badge id.$ended;
+        // box-shadow: id.$shadow-badge id.$ended;
+
+        box-shadow: id.$shadow-badge map.get(id.$colors, "ended");
     }
 }
 
 .badge-active {
-    background-color: id.$active;
+    // background-color: id.$active;
+
+    background-color: map.get(id.$colors, "active");
     color: fun.contrast-color(id.$active); // Автоматично підбирає текстовий колір
     &:hover {
-        box-shadow: id.$shadow-badge id.$active;
+        // box-shadow: id.$shadow-badge id.$active;
+
+        box-shadow: id.$shadow-badge map.get(id.$colors, "active");
     }
 }
